@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K Realtors | Premium Real Estate Services in Navi Mumbai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #d4af37;
+            --primary-dark: #b8941f;
+            --secondary: #1a1a1a;
+            --accent: #f5f5f5;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation - Centered Logo Style */
+        nav {
+            background: white;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-left a, .nav-right a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-left a:hover, .nav-right a:hover {
+            color: var(--primary);
+        }
+
+        .logo-center {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        /* Hero - Full Width Image Style */
+        .hero {
+            position: relative;
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn-gold, .btn-outline {
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-gold {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-gold:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Services - Grid Cards Layout */
+        .services {
+            padding: 6rem 3rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .service-item {
+            padding: 3rem 2rem;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .service-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-item p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* About - Two Column Layout */
+        .about {
+            padding: 6rem 3rem;
+            background: #fafafa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        .about-features {
+            list-style: none;
+            margin: 2.5rem 0;
+        }
+
+        .about-features li {
+            padding: 1rem 0;
+            color: var(--text-dark);
+            font-weight: 500;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .about-features li:before {
+            content: "●";
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-box {
+            padding: 2.5rem;
+            background: white;
+            border-left: 4px solid var(--primary);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: var(--secondary);
+            color: white;
+            padding: 5rem 3rem;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-banner p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Contact - Minimal Card Style */
+        .contact {
+            padding: 6rem 3rem;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-box {
+            text-align: center;
+            padding: 3rem 2rem;
+            border: 1px solid #e5e5e5;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-box h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .contact-box p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .contact-box a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Footer - Minimal */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 4rem 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .footer-brand p {
+            color: #999;
+            line-height: 1.8;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-left, .nav-right {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-wrapper">
+            <ul class="nav-left">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+            </ul>
+            <div class="logo-center">K REALTORS</div>
+            <ul class="nav-right">
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Find Your Dream Home in Navi Mumbai</h1>
+            <p>Experience excellence in real estate with K Realtors. We help you discover properties that match your lifestyle and aspirations.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn-gold">Explore Services</a>
+                <a href="#contact" class="btn-outline">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">What We Offer</div>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-description">Comprehensive real estate solutions tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">🏠</div>
+                    <h3>Property Buying</h3>
+                    <p>Expert assistance in finding and purchasing your ideal residential or commercial property with complete legal support.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">💰</div>
+                    <h3>Property Selling</h3>
+                    <p>Maximize your property value with our proven marketing strategies and extensive buyer network.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🔑</div>
+                    <h3>Rental Services</h3>
+                    <p>Find the perfect rental property or tenant with our comprehensive rental management services.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">📊</div>
+                    <h3>Property Valuation</h3>
+                    <p>Accurate property assessment and market analysis to help you make informed decisions.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">📝</div>
+                    <h3>Legal Documentation</h3>
+                    <p>Complete support with property documentation, registration, and legal formalities.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">💡</div>
+                    <h3>Investment Consultation</h3>
+                    <p>Strategic guidance for property investment opportunities with high returns potential.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Your Trusted Real Estate Partner</h2>
+                    <p>K Realtors has been a leading name in Navi Mumbai's real estate market. We specialize in helping clients find their perfect property, whether it's a dream home, commercial space, or investment opportunity.</p>
+                    <p>Our team of experienced professionals is dedicated to providing personalized service, transparent dealings, and expert guidance throughout your property journey.</p>
+                    <ul class="about-features">
+                        <li>Licensed & Certified Professionals</li>
+                        <li>Extensive Property Portfolio</li>
+                        <li>End-to-End Support</li>
+                        <li>Customer-Centric Approach</li>
+                    </ul>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Properties Sold</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <h2>Ready to Find Your Dream Property?</h2>
+        <p>Let our experts help you navigate the real estate market with confidence</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn-gold">Contact Us Today</a>
+            <a href="tel:08390676759" class="btn-outline">📞 Call Now</a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Get in Touch</div>
+                <h2 class="section-title">Contact K Realtors</h2>
+                <p class="section-description">Visit us or reach out for personalized property assistance</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <div class="contact-icon">📍</div>
+                    <h4>Our Office</h4>
+                    <p>Shop no.15, Sai Manomay,<br>
+                    Village 12:20 line, Sector 35D,<br>
+                    Sector 34C, Kutak Bandhan,<br>
+                    Kharghar, Navi Mumbai,<br>
+                    Maharashtra 410210</p>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-icon">📞</div>
+                    <h4>Phone</h4>
+                    <p><a href="tel:08390676759">083906 76759</a></p>
+                    <p>Mon-Sat: 10:00 AM - 7:00 PM<br>
+                    Sunday: By Appointment</p>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-icon">✉️</div>
+                    <h4>Email</h4>
+                    <p><a href="mailto:info@krealtors.com">info@krealtors.com</a></p>
+                    <p>We respond within 24 hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>K REALTORS</h3>
+                <p>Your trusted partner in finding the perfect property in Navi Mumbai. Excellence in real estate.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Property Buying</a></li>
+                    <li><a href="#services">Property Selling</a></li>
+                    <li><a href="#services">Rental Services</a></li>
+                    <li><a href="#services">Investment Consultation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>📍 Kharghar, Navi Mumbai</li>
+                    <li>📞 <a href="tel:08390676759">083906 76759</a></li>
+                    <li>✉️ <a href="mailto:info@krealtors.com">info@krealtors.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 K Realtors. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
